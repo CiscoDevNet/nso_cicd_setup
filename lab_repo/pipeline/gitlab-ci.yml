@@ -1,0 +1,42 @@
+stages:
+  - deploy_test
+  - test
+  - deploy_prod
+# A Docker container is used to execute the tests. Below specifies the Docker image to use.
+image: ansible_local:latest
+
+# Install any required python packages needed for the scripts
+before_script:
+  - pip install requests
+
+config_test:
+  stage: deploy_test
+  # The except clause exempts the build stage from being run when changes committed to master
+  except:
+    - master
+  script:
+  # Specifies the bash commands and/or script(s) to build the configurations on the lab devices
+    - ansible-playbook -i inventory.yaml pb_configure_devices.yaml
+
+check_connectivity:
+  stage: test
+  # Requires the build stage to successfully complete
+  needs:
+    - config_test
+  # Specifies a delayed start, useful to allow routing protocols to converge after the build stage
+  except:
+    - master
+  when: delayed
+  start_in: 30 seconds
+  # Run the bash commands and scripts needed to check connectivity
+  script:
+    - cd tests
+    - pyats run job pyats_job_runner.py --testbed testbed.yaml --targets ping_targets.yaml
+
+config_prod:
+  stage: deploy_prod
+  # Run deploy_prod stage only when branch is master
+  only:
+    - master
+  script:
+    - ansible-playbook -i inventory.yaml pb_configure_devices.yaml

@@ -1,0 +1,149 @@
+tailf-ncs:devices:
+    device:
+    -   config:
+            tailf-ned-cisco-ios-xr:admin:
+                username:
+                -   name: cisco
+                    secret:
+                        encryption: '5'
+                        password: $1$xq9.$Pdzu3w1QzYqGXWtCvDJyy0
+            tailf-ned-cisco-ios-xr:control-plane:
+                management-plane:
+                    inband:
+                        interface:
+                        -   allow:
+                            -   proto: all
+                            name: all
+            tailf-ned-cisco-ios-xr:domain:
+                lookup:
+                    disable:
+                    - null
+                name: virl.info
+            tailf-ned-cisco-ios-xr:hostname: core-rtr01
+            tailf-ned-cisco-ios-xr:interface:
+                GigabitEthernet:
+                -   description: L3 Link to core-rtr02
+                    id: 0/0/0/0
+                    ipv4:
+                        address:
+                            ip: 172.16.252.73
+                            mask: 255.255.255.252
+                -   description: L3 Link to edge-sw01
+                    id: 0/0/0/1
+                    ipv4:
+                        address:
+                            ip: 172.16.253.2
+                            mask: 255.255.255.248
+                -   description: L3 Link to dist-rtr01
+                    id: 0/0/0/2
+                    ipv4:
+                        address:
+                            ip: 172.16.252.22
+                            mask: 255.255.255.252
+                -   description: L3 Link to dist-rtr02
+                    id: 0/0/0/3
+                    ipv4:
+                        address:
+                            ip: 172.16.252.30
+                            mask: 255.255.255.252
+                Loopback:
+                -   description: to
+                    id: 0
+                    shutdown:
+                    - null
+                MgmtEth:
+                -   description: to port4.sandbox-backend
+                    id: 0/0/CPU0/0
+                    ipv4:
+                        address:
+                            ip: 10.10.20.173
+                            mask: 255.255.255.0
+                    vrf: Mgmt-intf
+            tailf-ned-cisco-ios-xr:line:
+                console:
+                    absolute-timeout: 0
+                    exec-timeout:
+                        minutes: 0
+                        seconds: 0
+                    session-timeout:
+                        minutes: 0
+                default:
+                    absolute-timeout: 0
+                    exec-timeout:
+                        minutes: 0
+                        seconds: 0
+                    session-timeout:
+                        minutes: 0
+                template:
+                -   exec-timeout:
+                        minutes: 720
+                        seconds: 0
+                    name: vty
+                    timestamp: {}
+            tailf-ned-cisco-ios-xr:logging:
+                console: disable
+            tailf-ned-cisco-ios-xr:router:
+                ospf:
+                -   area:
+                    -   id: 0
+                        interface:
+                        -   name: GigabitEthernet0/0/0/0
+                        -   name: GigabitEthernet0/0/0/1
+                        -   name: GigabitEthernet0/0/0/2
+                        -   name: GigabitEthernet0/0/0/3
+                    name: '1'
+                static:
+                    address-family:
+                        ipv4:
+                            unicast:
+                                routes-ip:
+                                -   address: 172.16.253.4
+                                    net: 0.0.0.0/0
+                    vrf:
+                    -   address-family:
+                            ipv4:
+                                unicast:
+                                    routes-ip:
+                                    -   address: 10.10.20.254
+                                        net: 0.0.0.0/0
+                        name: Mgmt-intf
+            tailf-ned-cisco-ios-xr:service:
+                timestamps:
+                    debug:
+                        datetime:
+                            msec:
+                            - null
+                    log:
+                        datetime:
+                            msec:
+                            - null
+            tailf-ned-cisco-ios-xr:ssh:
+                server:
+                    v2:
+                    - null
+            tailf-ned-cisco-ios-xr:telnet:
+                vrf:
+                -   name: Mgmt-intf
+                    telnet-server-list:
+                    -   af: ipv4
+                        server:
+                            max-servers: 10
+                -   name: default
+                    telnet-server-list:
+                    -   af: ipv4
+                        server:
+                            max-servers: 10
+            tailf-ned-cisco-ios-xr:vrf:
+                vrf-list:
+                -   address-family:
+                        ipv4:
+                            unicast: {}
+                        ipv6:
+                            unicast: {}
+                    name: Mgmt-intf
+            tailf-ned-cisco-ios-xr:vty-pool:
+                default:
+                    first-vty: 0
+                    last-vty: 50
+            tailf-ned-cisco-ios-xr:xyzroot: 0
+        name: core-rtr01

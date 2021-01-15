@@ -1,0 +1,50 @@
+
+- name: STORE CONFIGS FROM NSO AS YAML
+  hosts: "nso_server"
+  gather_facts: no
+  tasks:
+
+  - name: SYNC FROM DEVICE TO NSO
+    cisco.nso.nso_action:
+      url: https://10.10.20.49/jsonrpc
+      username: "{{ ansible_user }}"
+      password: "{{ ansible_password }}"
+      path: /ncs:devices/device{"{{ item }}"}/sync-from
+      input: {}
+    with_items:
+      - core-rtr01
+      - core-rtr02
+      - dist-rtr01
+      - dist-rtr02
+
+  - name: GET CONFIG FROM NSO
+    cisco.nso.nso_show:
+      url: https://10.10.20.49/jsonrpc
+      username: "{{ ansible_user }}"
+      password: "{{ ansible_password }}"
+      path: /ncs:devices/device{"{{ item }}"}/config
+      operational: false
+    register: jsonrpc_result
+    with_items:
+      - core-rtr01
+      - core-rtr02
+      - dist-rtr01
+      - dist-rtr02
+
+  - name: VIEW NSO_SHOW OUTPUT
+    debug:
+      msg: "{{ jsonrpc_result.results }}"
+  
+  - name: "DISPLAY OUTPUT"
+    debug:
+      msg: "{{ item.output }}"
+    loop: "{{ jsonrpc_result.results }}"
+
+  - name: USE JINJA2 TO TRANSFORM JSON OUTPUT TO YAML FILE
+    template:
+      lstrip_blocks: yes
+      src: json2yaml.j2
+      dest: "vars/{{ item.item }}.yaml"
+    loop: "{{ jsonrpc_result.results }}"
+    
+

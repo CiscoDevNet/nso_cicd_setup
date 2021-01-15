@@ -1,0 +1,10 @@
+---
+# Connectivity parameters
+ansible_connection: "httpapi"
+ansible_network_os: "restconf"
+ansible_httpapi_use_ssl: true
+ansible_httpapi_validate_certs: false
+ansible_httpapi_port: 443
+ansible_httpapi_restconf_root: "/restconf/data/"  # default
+ansible_user: "developer"
+ansible_password: "C1sco12345"

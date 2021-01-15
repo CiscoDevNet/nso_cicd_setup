@@ -1,0 +1,37 @@
+testbed:
+  name: nso_sandbox
+  credentials:
+    default:
+      username: cisco
+      password: cisco
+    enable:
+      password: cisco
+devices:
+  core-rtr01:
+    os: iosxr
+    type: iosxrv
+    connections:
+      vty:
+        protocol: telnet
+        ip: 10.10.20.173
+  core-rtr02:
+    os: iosxr
+    type: iosxrv
+    connections:
+      vty:
+        protocol: telnet
+        ip: 10.10.20.174
+  dist-rtr01:
+    os: iosxe
+    type: csr1000v
+    connections:
+      vty:
+        protocol: telnet
+        ip: 10.10.20.175
+  dist-rtr02:
+    os: iosxe
+    type: csr1000v
+    connections:
+      vty:
+        protocol: telnet
+        ip: 10.10.20.176

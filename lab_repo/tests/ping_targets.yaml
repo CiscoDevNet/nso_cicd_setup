@@ -1,0 +1,28 @@
+# This file is used with pyats_pingtest.py to specify the IP addresses
+# to ping from each device.  The key names below ("core-rtr01, etc.") must match the device
+# names in "testbed.yaml"
+core-rtr01:
+  - 172.16.252.38
+  - 172.16.253.3
+  - 172.16.253.4
+  - 172.16.252.21
+  - 172.16.252.29
+core-rtr02:
+  - 172.16.252.37
+  - 172.16.253.2
+  - 172.16.253.4
+  - 172.16.252.25
+  - 172.16.252.33
+dist-rtr01:
+  - 172.16.252.18
+  - 172.16.252.9
+  - 172.16.252.1
+  - 172.16.252.26
+  - 172.16.252.22
+dist-rtr02:
+  - 172.16.252.17
+  - 172.16.252.13
+  - 172.16.252.5
+  - 172.16.252.34
+  - 172.16.252.30
+  

@@ -1,0 +1,57 @@
+
+- name: PUSH CONFIGS TO DEVICES WITH NSO_CONFIG
+  hosts: "nso_server"
+  gather_facts: no
+  tasks:
+
+  - name: LOAD CONFIG
+    include_vars:
+      file: "vars/{{ item }}.yaml"
+      name: "{{ item | regex_replace('-','_') }}_config"
+    loop:
+      - core-rtr01
+      - core-rtr02
+      - dist-rtr01
+      - dist-rtr02
+
+  - name: DEBUG
+    debug:
+      msg: "{{ item }}"
+    loop:
+      - "{{ core_rtr01_config }}"
+      - "{{ core_rtr02_config }}"
+      - "{{ dist_rtr01_config }}"
+      - "{{ dist_rtr02_config }}"
+  
+  - name: ENSURE DEVICE IS IN SYNC
+    cisco.nso.nso_action:
+      url: https://10.10.20.49/jsonrpc
+      username: "{{ ansible_user }}"
+      password: "{{ ansible_password }}"
+      path: /ncs:devices/device{"{{ item }}"}/sync-to
+      input: {}
+    with_items:
+      - core-rtr01
+      - core-rtr02
+      - dist-rtr01
+      - dist-rtr02
+
+  - name: PUSH CONFIG TO DEVICE
+    cisco.nso.nso_config:
+      url: https://10.10.20.49/jsonrpc
+      username: "{{ ansible_user }}"
+      password: "{{ ansible_password }}"
+      data:
+        "{{ item }}"  
+    loop:
+      - "{{ core_rtr01_config }}"
+      - "{{ core_rtr02_config }}"
+      - "{{ dist_rtr01_config }}"
+      - "{{ dist_rtr02_config }}"
+    loop_control:
+      label: "{{ item['tailf-ncs:devices'].device[0].name }}"
+
+
+      
+
+ 

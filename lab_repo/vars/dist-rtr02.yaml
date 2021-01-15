@@ -1,0 +1,328 @@
+tailf-ncs:devices:
+    device:
+    -   config:
+            tailf-ned-cisco-ios:call-home:
+                contact-email-addr: sch-smart-licensing@cisco.com
+                profile:
+                -   active: true
+                    destination:
+                        transport-method:
+                            email: false
+                            http:
+                            - null
+                    name: CiscoTAC-1
+                    reporting:
+                        smart-licensing-data: true
+            tailf-ned-cisco-ios:control-plane: {}
+            tailf-ned-cisco-ios:crypto:
+                pki:
+                    certificate:
+                        chain:
+                        -   certificate:
+                            -   cert: "  30820321 30820209 A0030201 02020101 300D0609\
+                                    \ 2A864886 F70D0101 0B050030 \r\n  32310E30 0C060355\
+                                    \ 040A1305 43697363 6F312030 1E060355 04031317\
+                                    \ 43697363 \r\n  6F204C69 63656E73 696E6720 526F6F74\
+                                    \ 20434130 1E170D31 33303533 30313934 \r\n  3834375A\
+                                    \ 170D3338 30353330 31393438 34375A30 32310E30\
+                                    \ 0C060355 040A1305 \r\n  43697363 6F312030 1E060355\
+                                    \ 04031317 43697363 6F204C69 63656E73 696E6720\
+                                    \ \r\n  526F6F74 20434130 82012230 0D06092A 864886F7\
+                                    \ 0D010101 05000382 010F0030 \r\n  82010A02 82010100\
+                                    \ A6BCBD96 131E05F7 145EA72C 2CD686E6 17222EA1\
+                                    \ F1EFF64D \r\n  CBB4C798 212AA147 C655D8D7 9471380D\
+                                    \ 8711441E 1AAF071A 9CAE6388 8A38E520 \r\n  1C394D78\
+                                    \ 462EF239 C659F715 B98C0A59 5BBB5CBD 0CFEBEA3\
+                                    \ 700A8BF7 D8F256EE \r\n  4AA4E80D DB6FD1C9 60B1FD18\
+                                    \ FFC69C96 6FA68957 A2617DE7 104FDC5F EA2956AC\
+                                    \ \r\n  7390A3EB 2B5436AD C847A2C5 DAB553EB 69A9A535\
+                                    \ 58E9F3E3 C0BD23CF 58BD7188 \r\n  68E69491 20F320E7\
+                                    \ 948E71D7 AE3BCC84 F10684C7 4BC8E00F 539BA42B\
+                                    \ 42C68BB7 \r\n  C7479096 B4CB2D62 EA2F505D C7B062A4\
+                                    \ 6811D95B E8250FC4 5D5D5FB8 8F27D191 \r\n  C55F0D76\
+                                    \ 61F9A4CD 3D992327 A8BB03BD 4E6D7069 7CBADF8B\
+                                    \ DF5F4368 95135E44 \r\n  DFC7C6CF 04DD7FD1 02030100\
+                                    \ 01A34230 40300E06 03551D0F 0101FF04 04030201\
+                                    \ \r\n  06300F06 03551D13 0101FF04 05300301 01FF301D\
+                                    \ 0603551D 0E041604 1449DC85 \r\n  4B3D31E5 1B3E6A17\
+                                    \ 606AF333 3D3B4C73 E8300D06 092A8648 86F70D01\
+                                    \ 010B0500 \r\n  03820101 00507F24 D3932A66 86025D9F\
+                                    \ E838AE5C 6D4DF6B0 49631C78 240DA905 \r\n  604EDCDE\
+                                    \ FF4FED2B 77FC460E CD636FDB DD44681E 3A5673AB\
+                                    \ 9093D3B1 6C9E3D8B \r\n  D98987BF E40CBD9E 1AECA0C2\
+                                    \ 2189BB5C 8FA85686 CD98B646 5575B146 8DFC66A8\
+                                    \ \r\n  467A3DF4 4D565700 6ADF0F0D CF835015 3C04FF7C\
+                                    \ 21E878AC 11BA9CD2 55A9232C \r\n  7CA7B7E6 C1AF74F6\
+                                    \ 152E99B7 B1FCF9BB E973DE7F 5BDDEB86 C71E3B49\
+                                    \ 1765308B \r\n  5FB0DA06 B92AFE7F 494E8A9E 07B85737\
+                                    \ F3A58BE1 1A48A229 C37C1E69 39F08678 \r\n  80DDCD16\
+                                    \ D6BACECA EEBC7CF9 8428787B 35202CDC 60E4616A\
+                                    \ B623CDBD 230E3AFB \r\n  418616A9 4093E049 4D10AB75\
+                                    \ 27E86F73 932E35B5 8862FDAE 0275156F 719BB2F0\
+                                    \ \r\n  D697DF7F 28\r\n"
+                                cert-type: ca
+                                serial: '01'
+                            name: SLA-TrustPoint
+                        -   certificate:
+                            -   cert: "  30820330 30820218 A0030201 02020101 300D0609\
+                                    \ 2A864886 F70D0101 05050030 \r\n  31312F30 2D060355\
+                                    \ 04031326 494F532D 53656C66 2D536967 6E65642D\
+                                    \ 43657274 \r\n  69666963 6174652D 33343532 34323334\
+                                    \ 3439301E 170D3230 31323238 31353133 \r\n  33375A17\
+                                    \ 0D333030 31303130 30303030 305A3031 312F302D\
+                                    \ 06035504 03132649 \r\n  4F532D53 656C662D 5369676E\
+                                    \ 65642D43 65727469 66696361 74652D33 34353234\
+                                    \ \r\n  32333434 39308201 22300D06 092A8648 86F70D01\
+                                    \ 01010500 0382010F 00308201 \r\n  0A028201 0100916C\
+                                    \ 4FFB76B8 00BDBF52 2E3E5828 AC39A1F9 D67D32DF\
+                                    \ D0F5BB28 \r\n  6C4EB143 33AC8511 CE5E7351 F4766DDF\
+                                    \ C0047793 8B13B1A6 9FEEACE1 03632824 \r\n  6EB30D18\
+                                    \ 11D2613B 0B94BC6C D36A7EDD 9AE59BF5 A34B5C31\
+                                    \ 078C24BE 48DEE10C \r\n  699B7014 76493F8D AF50C716\
+                                    \ 82F5ADB7 E4F17CDD 4DFCEDDB BA75C221 C8816906\
+                                    \ \r\n  D8757C0A A7B9AAAD 13A882FE AE8E82A6 B848537D\
+                                    \ 90D26370 19114168 331CCDD6 \r\n  F0EA533D 408688CC\
+                                    \ 664EC132 E72AB9AD A6D9611F F5F29D69 E684BD5F\
+                                    \ BF3D0509 \r\n  004575A1 C7AAA0D9 04BAFC5C A45929E1\
+                                    \ EB282F5C 62EC6333 DF547D0C CED51237 \r\n  B477BD2C\
+                                    \ 915134E8 C8CBB586 4737F3BE C8788E5A 21F92D95\
+                                    \ FFB00BD9 810E09A9 \r\n  BF0D1E3D 0ADF0203 010001A3\
+                                    \ 53305130 0F060355 1D130101 FF040530 030101FF\
+                                    \ \r\n  301F0603 551D2304 18301680 14CBCD6A 71827CB4\
+                                    \ 39246D72 DF7EA16C F8E13D69 \r\n  63301D06 03551D0E\
+                                    \ 04160414 CBCD6A71 827CB439 246D72DF 7EA16CF8\
+                                    \ E13D6963 \r\n  300D0609 2A864886 F70D0101 05050003\
+                                    \ 82010100 02CDC91D 2B4EE7CF 3F23D7F7 \r\n  C81E0A14\
+                                    \ 3049D9B3 7684507D 15C21E5A 0E5722CD 94E02B42\
+                                    \ 433E3E2E D2F9564A \r\n  B8B1B271 91200B9E 3437AE62\
+                                    \ F6EAB7D9 5028A65C 333EDBD4 137F7FDA CC86B905\
+                                    \ \r\n  7CD0A006 9B18CBEC EE52E892 37E55D30 86960546\
+                                    \ 920E96A3 C2D472A2 413EF227 \r\n  C4D0877D 8461954A\
+                                    \ E2852E99 A65DF601 928CDB92 14E05E7F B2B45F95\
+                                    \ 8BD4C7F3 \r\n  14CA2B4D 6A271B71 C17FA8AC 95971705\
+                                    \ 79D46714 8A567C2B 4214ACB6 E9558041 \r\n  2FFA2539\
+                                    \ C549059C 2D3D14EE DDEC0467 DD6706BA 33C5395C\
+                                    \ 451FF889 4DDD5C0E \r\n  55F2F95C 56643934 40CAA9DA\
+                                    \ 2A982A98 105E6048 327C86CB 610B7CB0 929E3D1E\
+                                    \ \r\n  CD69F6D6 2F451957 A766B7DF A62CD4F4 85BDCC37\r\
+                                    \n"
+                                cert-type: self-signed
+                                serial: '01'
+                            name: TP-self-signed-3452423449
+                    trustpoint:
+                    -   enrollment:
+                            pkcs12:
+                            - null
+                        id: SLA-TrustPoint
+                        revocation-check:
+                        - crl
+                    -   enrollment:
+                            selfsigned:
+                            - null
+                        id: TP-self-signed-3452423449
+                        revocation-check:
+                        - none
+                        rsakeypair:
+                            key-label: TP-self-signed-3452423449
+                        subject-name: cn=IOS-Self-Signed-Certificate-3452423449
+            tailf-ned-cisco-ios:diagnostic:
+                bootup:
+                    level: minimal
+            tailf-ned-cisco-ios:enable:
+                password:
+                    secret: cisco
+            tailf-ned-cisco-ios:hostname: dist-rtr02
+            tailf-ned-cisco-ios:interface:
+                GigabitEthernet:
+                -   description: to port7.sandbox-backend
+                    ip:
+                        address:
+                            primary:
+                                address: 10.10.20.176
+                                mask: 255.255.255.0
+                    mop:
+                        sysid: false
+                        xenabled: false
+                    name: '1'
+                    negotiation:
+                        auto: true
+                    vrf:
+                        forwarding: Mgmt-intf
+                -   description: L3 Link to core-rtr01
+                    ip:
+                        address:
+                            primary:
+                                address: 172.16.252.29
+                                mask: 255.255.255.252
+                    mop:
+                        sysid: false
+                        xenabled: false
+                    name: '2'
+                    negotiation:
+                        auto: true
+                -   description: L3 Link to core-rtr02
+                    ip:
+                        address:
+                            primary:
+                                address: 172.16.252.33
+                                mask: 255.255.255.252
+                    mop:
+                        sysid: false
+                        xenabled: false
+                    name: '3'
+                    negotiation:
+                        auto: true
+                -   description: L3 Link to dist-sw01
+                    ip:
+                        address:
+                            primary:
+                                address: 172.16.252.6
+                                mask: 255.255.255.252
+                    mop:
+                        sysid: false
+                        xenabled: false
+                    name: '4'
+                    negotiation:
+                        auto: true
+                -   description: L3 Link to dist-sw02
+                    ip:
+                        address:
+                            primary:
+                                address: 172.16.252.14
+                                mask: 255.255.255.252
+                    mop:
+                        sysid: false
+                        xenabled: false
+                    name: '5'
+                    negotiation:
+                        auto: true
+                -   description: L3 Link to dist-rtr01
+                    ip:
+                        address:
+                            primary:
+                                address: 172.16.252.18
+                                mask: 255.255.255.252
+                    mop:
+                        sysid: false
+                        xenabled: false
+                    name: '6'
+                    negotiation:
+                        auto: true
+                Loopback:
+                -   description: to
+                    ip:
+                        no-address:
+                            address: false
+                    name: '0'
+                    shutdown:
+                    - null
+            tailf-ned-cisco-ios:ip:
+                domain:
+                    lookup-conf:
+                        lookup: false
+                    name: virl.info
+                forward-protocol:
+                    nd:
+                    - null
+                http:
+                    secure-server: true
+                    server: false
+                route:
+                    vrf:
+                    -   ip-route-forwarding-list:
+                        -   forwarding-address: 10.10.20.254
+                            mask: 0.0.0.0
+                            prefix: 0.0.0.0
+                        name: Mgmt-intf
+                ssh:
+                    server:
+                        algorithm:
+                            authentication:
+                            - password
+            tailf-ned-cisco-ios:line:
+                console:
+                -   exec-timeout:
+                        minutes: 0
+                    first: '0'
+                    password:
+                        secret: cisco
+                    stopbits: '1'
+                vty:
+                -   exec-timeout:
+                        minutes: 720
+                    first: 0
+                    last: 4
+                    login:
+                        local:
+                        - null
+                    password:
+                        secret: cisco
+                    transport:
+                        input:
+                        - ssh
+                        - telnet
+            tailf-ned-cisco-ios:logging:
+                buffered:
+                    severity-level: debugging
+                monitor:
+                    severity-level: debugging
+            tailf-ned-cisco-ios:login:
+                on-success:
+                    log:
+                    - null
+            tailf-ned-cisco-ios:memory:
+                free:
+                    low-watermark:
+                        processor: 80526
+            tailf-ned-cisco-ios:multilink:
+                bundle-name: authenticated
+            tailf-ned-cisco-ios:platform:
+                console: serial
+                punt-keepalive:
+                    disable-kernel-core: false
+                qfp:
+                    utilization:
+                        monitor:
+                            load: 80
+            tailf-ned-cisco-ios:redundancy: {}
+            tailf-ned-cisco-ios:router:
+                ospf:
+                -   id: 1
+                    network:
+                    -   area: 0
+                        ip: 172.16.252.0
+                        mask: 0.0.3.255
+            tailf-ned-cisco-ios:service:
+                call-home:
+                - null
+                timestamps:
+                    debug:
+                        datetime:
+                            msec:
+                            - null
+                    log:
+                        datetime:
+                            msec:
+                            - null
+            tailf-ned-cisco-ios:spanning-tree:
+                extend:
+                    system-id:
+                    - null
+            tailf-ned-cisco-ios:subscriber:
+                templating: true
+            tailf-ned-cisco-ios:tailfned:
+                police: cirmode
+            tailf-ned-cisco-ios:username:
+            -   name: cisco
+                privilege: 15
+                secret:
+                    secret: $9$cONmK/B00qLzO.$iaGnQNzSbJ3ypgnmS02qYpg3FORertbgOgB2CyOHl9g
+                    type: '9'
+            tailf-ned-cisco-ios:version: '16.11'
+            tailf-ned-cisco-ios:vrf:
+                definition:
+                -   address-family:
+                        ipv4: {}
+                        ipv6: {}
+                    name: Mgmt-intf
+        name: dist-rtr02
